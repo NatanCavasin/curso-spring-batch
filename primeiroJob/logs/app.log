@@ -34,3 +34,21 @@
 2023-08-07 10:33:59,236 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeParImparJob]] completed with the following parameters: [{run.id=9, nome=NatanCavasin}] and the following status: [COMPLETED] in 1s58ms
 2023-08-07 10:33:59,258 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
 2023-08-07 10:33:59,315 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2023-08-07 11:31:30,512 INFO c.u.c.CursospringbatchApplication [main] Starting CursospringbatchApplication using Java 17.0.7 on Ubuntu-academico with PID 14980 (/home/unoesc/Documents/curso-spring-batch/primeiroJob/target/classes started by unoesc in /home/unoesc/Documents/curso-spring-batch/primeiroJob)
+2023-08-07 11:31:30,524 INFO c.u.c.CursospringbatchApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-08-07 11:31:31,345 INFO o.s.c.a.ConfigurationClassEnhancer [main] @Bean method PropsConfig.config is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2023-08-07 11:31:31,526 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-08-07 11:31:32,622 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-08-07 11:31:33,081 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: MYSQL
+2023-08-07 11:31:33,375 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2023-08-07 11:31:33,562 INFO c.u.c.CursospringbatchApplication [main] Started CursospringbatchApplication in 4.225 seconds (JVM running for 5.347)
+2023-08-07 11:31:33,712 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeOlaJob]] launched with the following parameters: [{run.id=15, nome=NatanCavasin, arquivoClientes=file:files/clientes.txt}]
+2023-08-07 11:31:33,849 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [imprimeOlaStep]
+2023-08-07 11:31:34,002 INFO o.s.b.c.s.AbstractStep [main] Step: [imprimeOlaStep] executed in 152ms
+2023-08-07 11:31:34,068 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeOlaJob]] completed with the following parameters: [{run.id=15, nome=NatanCavasin, arquivoClientes=file:files/clientes.txt}] and the following status: [COMPLETED] in 288ms
+2023-08-07 11:31:34,252 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeParImparJob]] launched with the following parameters: [{run.id=10, nome=NatanCavasin, arquivoClientes=file:files/clientes.txt}]
+2023-08-07 11:31:34,372 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [imprimeParImparStep]
+2023-08-07 11:31:35,986 INFO o.s.b.c.s.AbstractStep [main] Step: [imprimeParImparStep] executed in 1s613ms
+2023-08-07 11:31:36,009 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeParImparJob]] completed with the following parameters: [{run.id=10, nome=NatanCavasin, arquivoClientes=file:files/clientes.txt}] and the following status: [COMPLETED] in 1s744ms
+2023-08-07 11:31:36,070 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2023-08-07 11:31:36,142 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
