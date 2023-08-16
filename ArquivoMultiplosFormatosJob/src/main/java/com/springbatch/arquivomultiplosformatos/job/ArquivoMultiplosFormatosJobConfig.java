@@ -1,4 +1,4 @@
-package com.springbatch.arquivolargurafixa.job;
+package com.springbatch.arquivomultiplosformatos.job;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -11,15 +11,15 @@ import org.springframework.context.annotation.Configuration;
 
 @EnableBatchProcessing
 @Configuration
-public class ArquivoLarguraFixaJobConfig {
+public class ArquivoMultiplosFormatosJobConfig {
 	@Autowired
 	public JobBuilderFactory jobBuilderFactory;
 	
 	@Bean
-	public Job arquivoLarguraFixaJob(Step leituraArquivoLarguraFixaStep) {
+	public Job arquivoMultiplosFormatosJob(Step leituraArquivoMultiplosFormatosStep) {
 		return jobBuilderFactory
-				.get("arquivoLarguraFixaJob")
-				.start(leituraArquivoLarguraFixaStep)
+				.get("arquivoMultiplosFormatosJob")
+				.start(leituraArquivoMultiplosFormatosStep)
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}
