@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ArquivoMultiplosFormatosJobApplication {
+public class MultiplosArquivosJobApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArquivoMultiplosFormatosJobApplication.class, args);
+		SpringApplication.run(MultiplosArquivosJobApplication.class, args);
 	}
 
 }
