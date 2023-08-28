@@ -22,6 +22,9 @@ public class SkipExceptionStepConfig {
 				.<Cliente, Cliente>chunk(11)
 				.reader(skipExceptionReader)
 				.writer(skipExceptionWriter)
+				.faultTolerant()
+				.skip( Exception.class) //excessão que vai ser ignorada no processamento
+				.skipLimit(2) // Limite de registros que serão ognorados o erro
 				.build();
 	}
 }
