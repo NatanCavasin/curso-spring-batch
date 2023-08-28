@@ -15,8 +15,8 @@ public class Cliente {
 	@Range(min=18, max=200)
 	private Integer idade;
 	@NotNull
-	@Size(min=7, max=50)
-	@Pattern(regexp="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", message="Email inválido")
+	@Size(min=1, max=50)
+	//@Pattern(regexp="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", message="Email inválido")
 	private String email;
 	
 	public String getNome() {

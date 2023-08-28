@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.batch.item.ItemProcessor;
+import org.springframework.batch.item.support.builder.CompositeItemProcessorBuilder;
+import org.springframework.batch.item.validator.BeanValidatingItemProcessor;
 import org.springframework.batch.item.validator.ValidatingItemProcessor;
 import org.springframework.batch.item.validator.ValidationException;
 import org.springframework.batch.item.validator.Validator;
@@ -18,9 +20,29 @@ public class ProcessadorValidacaoProcessorConfig {
 	private Set<String> emails = new HashSet<>();
 	
 	@Bean
-	public ItemProcessor<Cliente, Cliente> procesadorValidacaoProcessor() {
-//		BeanValidatingItemProcessor<Cliente> processor = new BeanValidatingItemProcessor<>();
-//		processor.setFilter(true);
+	public ItemProcessor<Cliente, Cliente> procesadorValidacaoProcessor() throws Exception {
+		return new CompositeItemProcessorBuilder<Cliente, Cliente>()
+				.delegates(
+					beanValidatingProcessor(), 
+					emailValidatingProcessor()
+				)
+				.build();
+		
+	}
+	
+	/**
+	 * Valida com base nos Validators definidos na classe Cliente 
+	 * @return
+	 * @throws Exception
+	 */
+	private BeanValidatingItemProcessor<Cliente> beanValidatingProcessor() throws Exception {
+		BeanValidatingItemProcessor<Cliente> processor = new BeanValidatingItemProcessor<>();
+		processor.setFilter(true); //não interrompe a execução do bach em caso de erro
+		processor.afterPropertiesSet(); // Como esta em um processador composto é preciso setar as propriedades desse processador
+		return processor;
+	}
+	
+	private ValidatingItemProcessor<Cliente> emailValidatingProcessor() {
 		ValidatingItemProcessor<Cliente> processor = new ValidatingItemProcessor<>();
 		processor.setValidator(validator());
 		processor.setFilter(true); //não interrompe a execução do bach
