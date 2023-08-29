@@ -1,0 +1,15 @@
+
+SISTEMA INTEGRADO: XPTO 				 DATA: 29/08/2023
+MÓDULO: ORÇAMENTO 						 HORA: 13:08
+			DEMONSTRATIVO ORCAMENTARIO
+----------------------------------------------------------------------------
+CODIGO NOME VALOR
+	 Data Descricao Valor
+----------------------------------------------------------------------------
+
+[44905224] EQUIPAMENTO DE PROTEÃÃO SEGURANÃA E SOCORRO - $1,000.00
+	 [01/05/2020] Alarme - $1,000.00
+
+
+							  Total: $1,000.00
+							  Código de Autenticação: fkyew6868fewjfhjjewf

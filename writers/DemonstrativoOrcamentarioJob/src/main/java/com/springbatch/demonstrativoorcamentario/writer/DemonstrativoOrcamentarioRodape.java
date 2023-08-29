@@ -5,7 +5,9 @@ import java.io.Writer;
 import java.text.NumberFormat;
 import java.util.List;
 
+import org.springframework.batch.core.annotation.AfterChunk;
 import org.springframework.batch.core.annotation.BeforeWrite;
+import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.item.file.FlatFileFooterCallback;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +28,11 @@ public class DemonstrativoOrcamentarioRodape implements FlatFileFooterCallback{
 	@BeforeWrite
 	public void beforeWrite(List<GrupoLancamento> grupos) {
 		grupos.forEach(g -> totalGeral += g.getTotal());
+	}
+	
+	@AfterChunk
+	public void afterChunk(ChunkContext context) {
+		this.totalGeral = 0.0;
 	}
 
 }
