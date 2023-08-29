@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.springbatch.demonstrativoorcamentario.dominio.GrupoLancamento;
 import com.springbatch.demonstrativoorcamentario.reader.GrupoLancamentoReader;
+import com.springbatch.demonstrativoorcamentario.writer.DemonstrativoOrcamentarioRodape;
 
 @Configuration
 public class DemonstrativoOrcamentarioStepConfig {
@@ -21,12 +22,14 @@ public class DemonstrativoOrcamentarioStepConfig {
 			//MultiResourceItemReader<GrupoLancamento> demonstrativoOrcamentarioReader,
 			// Esse aqui lê do banco de dados
 			GrupoLancamentoReader demonstrativoOrcamentarioReader,
-			ItemWriter<GrupoLancamento> demonstrativoOrcamentarioWriter) {
+			ItemWriter<GrupoLancamento> demonstrativoOrcamentarioWriter,
+			DemonstrativoOrcamentarioRodape footerCallback) {
 		return stepBuilderFactory
 				.get("demonstrativoOrcamentarioStep")
 				.<GrupoLancamento,GrupoLancamento>chunk(100)
 				.reader(demonstrativoOrcamentarioReader)
 				.writer(demonstrativoOrcamentarioWriter)
+				.listener(footerCallback)
 				.build();
 	}
 }
