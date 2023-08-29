@@ -14,6 +14,7 @@ import com.springbatch.contasbancarias.dominio.TipoConta;
 public class GeracaoContaClassifier implements Classifier<Cliente, ItemProcessor<?, ? extends Conta>> {
 	// Padrão de projeto para evitar o uso de if's no classificador.
 	private static final Map<TipoConta, ItemProcessor<Cliente, Conta>> processadores = new HashMap<TipoConta, ItemProcessor<Cliente, Conta>>() {{
+		put(TipoConta.INVALIDA, new ContaInvalidaItemProcessor());
 		put(TipoConta.PRATA, new ContaPrataItemProcessor());
 		put(TipoConta.OURO, new ContaOuroItemProcessor());
 		put(TipoConta.PLATINA, new ContaPlatinaItemProcessor());
