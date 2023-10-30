@@ -20,14 +20,14 @@ public class EnvioemailClientesStepConfig {
 	
 	@Bean
 	public Step envioemailClientesStep(
-			ItemReader<InteresseProdutoCliente> lerInteresseProdutoClienteProcessor,
+			ItemReader<InteresseProdutoCliente> lerInteresseProdutoClienteReader,
 			ItemProcessor<InteresseProdutoCliente, SimpleMailMessage> processarEmailProdutoClienteProcessor,
 			ItemWriter<SimpleMailMessage> enviarEmailProdutoClienteWriter
 			) {
 		return stepBuilderFactory
 				.get("envioemailClientesStep")
 				.<InteresseProdutoCliente, SimpleMailMessage>chunk(1)
-				.reader(lerInteresseProdutoClienteProcessor)
+				.reader(lerInteresseProdutoClienteReader)
 				.processor(processarEmailProdutoClienteProcessor)
 				.writer(enviarEmailProdutoClienteWriter)
 				.build();

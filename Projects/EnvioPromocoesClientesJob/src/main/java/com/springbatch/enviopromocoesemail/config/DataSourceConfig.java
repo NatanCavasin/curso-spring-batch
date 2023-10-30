@@ -13,14 +13,13 @@ public class DataSourceConfig {
     @Primary
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
-    DataSource springDataSource() {
+    public DataSource springDataSource() {
 		return DataSourceBuilder.create().build();
 	}
 
-    @Primary
     @Bean
     @ConfigurationProperties(prefix = "app.datasource")
-    DataSource appDataSource() {
+    public DataSource appDataSource() {
 		return DataSourceBuilder.create().build();
 	}
 }

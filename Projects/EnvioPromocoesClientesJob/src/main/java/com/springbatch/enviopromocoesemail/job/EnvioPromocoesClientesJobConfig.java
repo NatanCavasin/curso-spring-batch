@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EnvioPromocoesClientesJobConfig {
 
-	@SuppressWarnings("removal")
+	
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
 	
