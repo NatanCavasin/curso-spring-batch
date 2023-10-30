@@ -4,6 +4,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemStreamReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,7 @@ public class EnvioemailClientesStepConfig {
 	
 	@Bean
 	public Step envioemailClientesStep(
-			ItemReader<InteresseProdutoCliente> lerInteresseProdutoClienteReader,
+			ItemStreamReader<InteresseProdutoCliente> lerInteresseProdutoClienteReader,
 			ItemProcessor<InteresseProdutoCliente, SimpleMailMessage> processarEmailProdutoClienteProcessor,
 			ItemWriter<SimpleMailMessage> enviarEmailProdutoClienteWriter
 			) {
@@ -30,6 +31,7 @@ public class EnvioemailClientesStepConfig {
 				.reader(lerInteresseProdutoClienteReader)
 				.processor(processarEmailProdutoClienteProcessor)
 				.writer(enviarEmailProdutoClienteWriter)
+				.stream(lerInteresseProdutoClienteReader)
 				.build();
 	}
 
